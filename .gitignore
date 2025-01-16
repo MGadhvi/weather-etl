@@ -1,0 +1,37 @@
+# Emacs files
+*~                     # Backup files
+.#*                    # Auto-save files
+*.elc                  # Compiled Emacs Lisp files
+*.el                   # Emacs Lisp files (if you don't want to track them)
+*.org_archive          # Org mode archive files
+*.org                  # Org mode files (if you don't want to track them)
+*.gpg                  # GnuPG encrypted files
+*.pdf                  # PDF files (if generated from Org mode)
+*.log                  # Log files
+*.tmp                  # Temporary files
+*.bak                  # Backup files
+*.swp                  # Swap files
+*.swo                  # Swap files
+*.swn                  # Swap files
+*.d                   # Directory for Emacs temporary files
+
+# Other common files
+.DS_Store              # macOS Finder files
+Thumbs.db             # Windows thumbnail cache
+*.class                # Java class files
+*.jar                  # Java archive files
+*.war                  # Web application archive files
+*.pyc                  # Python bytecode files
+__pycache__/           # Python cache directory
+node_modules/          # Node.js dependencies
+dist/                  # Distribution files
+build/                 # Build output
+*.log                  # Log files
+*.coverage             # Coverage files
+*.egg-info/            # Python egg info directory
+*.egg/                 # Python egg directory
+*.iml                  # IntelliJ IDEA project files
+
+# Ignore virtual environment directories
+venv/                  # Python virtual environments
+env/                   # Python virtual environments
