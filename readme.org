@@ -1,71 +1,80 @@
-#+TITLE: Weather Data Dashboard
+#+TITLE: Weather Data Visualization Project
 
-This project is a Python-based application that visualizes weather data, including temperature and rain information for various cities. The application connects to a PostgreSQL database to fetch and display the data.
+This project retrieves weather data for specified cities using the OpenWeatherMap API, stores the data in a PostgreSQL database, and visualizes the results using Seaborn and Matplotlib. The visualizations are saved in a dedicated folder.
 
-* Features
-- Fetches weather data from the OpenWeatherMap API.
-- Stores weather data in a PostgreSQL database.
-- Visualizes temperature and rain data using Seaborn and Matplotlib.
+* Project Structure
+
+project_root/
+│
+├── config/
+│   └── config.json          # Configuration file containing API key, database config, and city list
+│
+├── src/
+│   ├── init.py          # Package initialization file
+│   ├── config.py            # Module for loading configuration settings
+│   ├── weather_api.py       # Module for fetching weather data from the API
+│   ├── database.py          # Module for database operations (loading and fetching data)
+│   └── visualization.py      # Module for visualizing weather data
+│
+├── visualizations/           # Folder for saving generated plots
+│   └── (this folder will contain the saved plots)
+│
+└── main.py                  # Main entry point of the application
+
 
 * Requirements
-- Python 3.6 or higher
+
+- Python 3.x
 - PostgreSQL
-- Required Python packages:
-  - requests
-  - psycopg2
-  - pandas
-  - seaborn
-  - matplotlib
+- Required Python packages (listed in `requirements.txt`)
 
-You can install the required packages using pip:
+* Setup Instructions
 
-#+BEGIN_SRC bash
-pip install requests psycopg2 pandas seaborn matplotlib
-#+END_SRC
+1. **Clone the repository**:
+   #+BEGIN_SRC bash
+   git clone <repository-url>
+   cd <repository-directory>
+   #+END_SRC
 
-* Setup
-1. **Create a PostgreSQL Database**:
-   - Create a new PostgreSQL database to store the weather data.
+2. **Create a virtual environment** (optional but recommended):
+   #+BEGIN_SRC bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   #+END_SRC
 
-2. **Get OpenWeatherMap API Key**:
-   - Sign up at [[https://openweathermap.org/][OpenWeatherMap]] and obtain an API key.
+3. **Install required packages**:
+   Create a `requirements.txt` file with the following content:
+   ```
+   requests
+   psycopg2
+   pandas
+   seaborn
+   matplotlib
+   ```
+   Then run:
+   #+BEGIN_SRC bash
+   pip install -r requirements.txt
+   #+END_SRC
 
-3. **Create a Configuration File**:
-   - Create a `config.json` file in the project directory with the following structure:
+4. **Configure the project**:
+   - Open `config/config.json` and fill in your OpenWeatherMap API key and PostgreSQL database configuration. 
+   - Specify the list of cities you want to retrieve weather data for.
 
-#+BEGIN_SRC json
-{
-    "api_key": "YOUR_OPENWEATHERMAP_API_KEY",
-    "db_config": {
-        "dbname": "your_db_name",
-        "user": "your_username",
-        "password": "your_password",
-        "host": "localhost",
-        "port": "5432"
-    },
-    "cities": ["City1", "City2", "City3"]
-}
-#+END_SRC
+5. **Run the application**:
+   #+BEGIN_SRC bash
+   python main.py
+   #+END_SRC
 
-   Replace the placeholders with your actual database credentials and the list of cities you want to fetch weather data for.
+* Output
 
-4. **Run the Data Collection Script**:
-   - Run the main script to fetch and store weather data in the database:
-
-#+BEGIN_SRC bash
-python your_script_name.py
-#+END_SRC
-
-* Usage
-- The application displays a table of weather data, including temperature and rain information for the specified cities.
-- It provides visualizations for temperature by city and highlights cities currently experiencing rain.
-
-* Contributing
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
+- The weather data will be stored in the specified PostgreSQL database.
+- Visualizations will be saved in the `visualizations/` folder as PNG files.
 
 * License
-This project is licensed under the MIT License. See the [[LICENSE][LICENSE]] file for details.
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 * Acknowledgments
-- [[https://openweathermap.org/][OpenWeatherMap]] for providing the weather data API.
+
+- [[https://openweathermap.org/api][OpenWeatherMap API]] for providing weather data.
 - [[https://seaborn.pydata.org/][Seaborn]] and [[https://matplotlib.org/][Matplotlib]] for data visualization.

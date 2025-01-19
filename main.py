@@ -1,15 +1,13 @@
 import warnings
-import os
-from config import load_config
-from weather_api import extract_weather_data
-from database import load_weather_data, fetch_weather_data, fetch_rainy_cities
-from visualization import visualize_weather_data, visualize_rainy_cities
+from weather_etl.config import load_config
+from weather_etl.weather_api import extract_weather_data
+from weather_etl.database import load_weather_data, fetch_weather_data, fetch_rainy_cities
+from weather_etl.visualization import visualize_weather_data, visualize_rainy_cities
 
-# Suppress specific warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 if __name__ == "__main__":
-    config_path = os.path.join('config', 'config.json')
+    config_path = 'config/config.json'
     config = load_config(config_path)
     
     api_key = config['api_key']
