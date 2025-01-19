@@ -3,13 +3,13 @@
 This project retrieves weather data for specified cities using the OpenWeatherMap API, stores the data in a PostgreSQL database, and visualizes the results using Seaborn and Matplotlib. The visualizations are saved in a dedicated folder.
 
 * Project Structure
-
+#+BEGIN_SRC bash
 project_root/
 │
 ├── config/
 │   └── config.json          # Configuration file containing API key, database config, and city list
 │
-├── weather_etlXS/
+├── weather_etl/
 │   ├── init.py          # Package initialization file
 │   ├── config.py            # Module for loading configuration settings
 │   ├── weather_api.py       # Module for fetching weather data from the API
@@ -20,7 +20,7 @@ project_root/
 │   └── (this folder will contain the saved plots)
 │
 └── main.py                  # Main entry point of the application
-
+#+END_SRC
 
 * Requirements
 
