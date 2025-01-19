@@ -38,3 +38,7 @@ env/                   # Python virtual environments
 
 # Configuration
 config.json
+
+# Byte-compiled files
+__pycache__/
+*.pyc
