@@ -35,3 +35,6 @@ build/                 # Build output
 # Ignore virtual environment directories
 venv/                  # Python virtual environments
 env/                   # Python virtual environments
+
+# Configuration
+config.json
